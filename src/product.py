@@ -5,6 +5,7 @@ class Product:
     """
     Класс для описания продукта
     """
+    products: list = []
     name: str
     description: str
     price: float
@@ -21,14 +22,13 @@ class Product:
 
     @classmethod
     def new_product(cls, data: dict) -> Any:
-        products: list = []
-        for product in products:
+        for product in cls.products:
             if product.name == data["name"]:
                 product.quantity += data["quantity"]
                 product.price = max(product.price, data["price"])
                 return product
         new_product = cls(**data)
-        products.append(new_product)
+        cls.products.append(new_product)
         return new_product
 
     @property

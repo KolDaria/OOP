@@ -1,5 +1,7 @@
 from typing import Any
 
+from src.product import Product
+
 
 class Category:
     """
@@ -26,6 +28,9 @@ class Category:
         """
         Метод для записи объекта класса Product в приватный атрибут списка товаров.
         """
+        if not isinstance(product, Product):
+            raise TypeError("Можно добавлять только экземпляры Product")
+
         self.__products.append(product)
         Category.product_count += 1
 
