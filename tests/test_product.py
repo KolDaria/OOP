@@ -27,9 +27,25 @@ def test_new_product_update(capsys: Any, product: Any) -> Any:
     assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
 
-@patch('builtins.input', return_value='y')
-def test_product_price_setter(mock_input: Any, capsys: Any, new_product: Any) -> Any:
+def test_product_price_setter() -> Any:
+    new_product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 100, 5)
     new_product.price = 1000
-    message = capsys.readouterr()
-    assert message.out.strip() == ''
     assert new_product.price == 1000
+
+
+def test_product_price_setter_decrease(capsys: Any) -> Any:
+    new_product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 2000, 5)
+    with patch('builtins.input', return_value='y') as mock_input:
+        new_product.price = 1000
+        mock_input.assert_called_once_with("Подтверждаете понижение цены yes(y)/no(n): ")
+        assert new_product.price == 1000
+
+
+def test_new_product_existing_product() -> Any:
+    Product.products = [Product(name="Samsung Galaxy S23 Ultra", description="256GB, Серый цвет, 200MP камера",
+                                price=180000.0, quantity=5)]
+    data = {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "quantity": 20,
+            "price": 190000.0}
+    result = Product.new_product(data)
+    assert result.quantity == 25
+    assert result.price == 190000.0
