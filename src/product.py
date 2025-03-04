@@ -5,6 +5,7 @@ class Product:
     """
     Класс для описания продукта
     """
+    products: list = []
     name: str
     description: str
     price: float
@@ -16,5 +17,32 @@ class Product:
         """
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @classmethod
+    def new_product(cls, data: dict) -> Any:
+        for product in cls.products:
+            if product.name == data["name"]:
+                product.quantity += data["quantity"]
+                product.price = max(product.price, data["price"])
+                return product
+        new_product = cls(**data)
+        cls.products.append(new_product)
+        return new_product
+
+    @property
+    def price(self) -> float:
+        return self.__price
+
+    @price.setter
+    def price(self, new_price: int) -> Any:
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+        else:
+            if self.__price > new_price:
+                user_input = input("Подтверждаете понижение цены yes(y)/no(n): ")
+                if user_input.lower() == "y":
+                    self.__price = new_price
+            else:
+                self.__price = new_price

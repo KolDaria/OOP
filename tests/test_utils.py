@@ -6,4 +6,4 @@ def test_objects_json() -> None:
     category_data = objects_json(data_r)
 
     assert category_data[0].name == "Смартфоны"
-    assert len(category_data[0].products) == 3
+    assert len(category_data[0].in_products) == 3
