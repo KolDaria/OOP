@@ -63,7 +63,7 @@ Name                      Stmts   Miss  Cover
 ---------------------------------------------
 config.py                     4      0   100%
 src\__init__.py               0      0   100%
-src\category.py              30      0   100%
+src\category.py              34      0   100%
 src\product.py               38      0   100%
 src\product_iterator.py      13      0   100%
 src\utils.py                 19      0   100%
@@ -73,7 +73,7 @@ tests\test_category.py       30      0   100%
 tests\test_product.py        40      0   100%
 tests\test_utils.py           6      0   100%
 ---------------------------------------------
-TOTAL                       200      0   100%
+TOTAL                       204      0   100%
 
 ```
 

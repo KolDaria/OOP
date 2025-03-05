@@ -42,7 +42,7 @@ def test_add_non_product() -> None:
 
 
 def test_category_str(first_category: Any) -> Any:
-    assert str(first_category) == "Смартфоны, количество продуктов: 3 шт."
+    assert str(first_category) == "Смартфоны, количество продуктов: 27 шт."
 
 
 def test_product_iterator(product_iterator: Any) -> Any:
