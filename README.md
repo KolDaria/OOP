@@ -59,22 +59,21 @@ len(category_data[0].products) == 3  # выход функции
 
 ```
 ---------- coverage: platform win32, python 3.13.0-final-0 -----------
-Name                     Stmts   Miss  Cover
---------------------------------------------
-config.py                    4      0   100%
-src\__init__.py              0      0   100%
-src\category.py             28      0   100%
-src\product.py              34      0   100%
-src\utils.py                19      0   100%
-tests\__init__.py            0      0   100%
-tests\conftest.py           16      0   100%
-tests\test_category.py      22      0   100%
-tests\test_product.py       34      0   100%
-tests\test_utils.py          6      0   100%
---------------------------------------------
-TOTAL                      163      0   100%
-
-
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+config.py                     4      0   100%
+src\__init__.py               0      0   100%
+src\category.py              34      0   100%
+src\product.py               38      0   100%
+src\product_iterator.py      13      0   100%
+src\utils.py                 19      0   100%
+tests\__init__.py             0      0   100%
+tests\conftest.py            20      0   100%
+tests\test_category.py       30      0   100%
+tests\test_product.py        40      0   100%
+tests\test_utils.py           6      0   100%
+---------------------------------------------
+TOTAL                       204      0   100%
 
 ```
 

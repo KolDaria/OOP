@@ -4,6 +4,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -41,3 +42,8 @@ def product() -> Any:
 @pytest.fixture
 def new_product() -> Any:
     return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+
+
+@pytest.fixture
+def product_iterator(second_category: Any) -> Any:
+    return ProductIterator(second_category)

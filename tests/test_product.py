@@ -49,3 +49,14 @@ def test_new_product_existing_product() -> Any:
     result = Product.new_product(data)
     assert result.quantity == 25
     assert result.price == 190000.0
+
+
+def test_product_str(product: Any) -> Any:
+    assert str(product) == '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
+
+
+def test_product_add() -> Any:
+    """Тест функции calculate_total_price"""
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    assert product1 + product2 == 180000.0 * 5 + 210000.0 * 8

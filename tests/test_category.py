@@ -39,3 +39,16 @@ def test_add_non_product() -> None:
     )
     with pytest.raises(TypeError):
         category.add_product("Не продукт")
+
+
+def test_category_str(first_category: Any) -> Any:
+    assert str(first_category) == "Смартфоны, количество продуктов: 27 шт."
+
+
+def test_product_iterator(product_iterator: Any) -> Any:
+    iter(product_iterator)
+    assert product_iterator.index == 0
+    assert next(product_iterator).name == '55" QLED 4K'
+
+    with pytest.raises(StopIteration):
+        next(product_iterator)
