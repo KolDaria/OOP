@@ -24,7 +24,10 @@ class Product:
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self: Any, other: Any) -> Any:
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(other) is self.__class__:
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, data: dict) -> Any:
@@ -52,3 +55,43 @@ class Product:
                     self.__price = new_price
             else:
                 self.__price = new_price
+
+
+class Smartphone(Product):
+    """
+    Дочерний класс описания продукта (смартфон)
+    """
+    efficiency: float
+    model: str
+    memory: int
+    color: str
+
+    def __init__(self: Any, name: str, description: str, price: float, quantity: int, efficiency: float, model: str,
+                 memory: int, color: str) -> None:
+        """
+        Метод переопределения базового класса
+        """
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+    """
+    Дочерний класс описания продукта (трава газонная)
+    """
+    country: str
+    germination_period: str
+    color: str
+
+    def __init__(self: Any, name: str, description: str, price: float, quantity: int, country: str,
+                 germination_period: str, color: str) -> None:
+        """
+        Метод переопределения базового класса
+        """
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
