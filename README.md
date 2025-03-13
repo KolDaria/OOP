@@ -29,6 +29,11 @@ poetry add requests
 4. `reading_json`: функция для чтения JSON-файла.
 5. `objects_json`: функция для подгрузки данных по категориям и товарам из файла JSON.
 6. `14.1_main.py`: модуль для проверки функциональностей между собой.
+7. `14.2_main.py`: модуль для проверки функциональностей между собой.
+8. `15.1_main.py`: модуль для проверки функциональностей между собой.
+9. `16.1_main.py`: модуль для проверки функциональностей между собой.
+10. `Smartphone`: создан дочерний класс описания продукта.
+11. `LawnGrass`: создан дочерний класс описания продукта.
 
 #### Папку `tests` в которой реализованно следующее:
 
@@ -63,17 +68,17 @@ Name                      Stmts   Miss  Cover
 ---------------------------------------------
 config.py                     4      0   100%
 src\__init__.py               0      0   100%
-src\category.py              34      0   100%
-src\product.py               38      0   100%
+src\category.py              33      0   100%
+src\product.py               60      0   100%
 src\product_iterator.py      13      0   100%
 src\utils.py                 19      0   100%
 tests\__init__.py             0      0   100%
-tests\conftest.py            20      0   100%
+tests\conftest.py            26      0   100%
 tests\test_category.py       30      0   100%
-tests\test_product.py        40      0   100%
+tests\test_product.py        63      0   100%
 tests\test_utils.py           6      0   100%
 ---------------------------------------------
-TOTAL                       204      0   100%
+TOTAL                       254      0   100%
 
 ```
 

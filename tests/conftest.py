@@ -3,7 +3,7 @@ from typing import Any
 import pytest
 
 from src.category import Category
-from src.product import Product
+from src.product import LawnGrass, Product, Smartphone
 from src.product_iterator import ProductIterator
 
 
@@ -47,3 +47,13 @@ def new_product() -> Any:
 @pytest.fixture
 def product_iterator(second_category: Any) -> Any:
     return ProductIterator(second_category)
+
+
+@pytest.fixture
+def product_smartphone1() -> Any:
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+
+
+@pytest.fixture
+def product_lawngrass1() -> Any:
+    return LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
