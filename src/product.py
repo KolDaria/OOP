@@ -1,7 +1,21 @@
+from abc import ABC, abstractmethod
 from typing import Any
 
+from src.print_mixin import PrintMixin
 
-class Product:
+
+class BaseProduct(ABC):
+    """
+    Абстрактный класс выводит общие свойства из класса «Продукты»
+    """
+
+    @classmethod
+    @abstractmethod
+    def new_product(cls: Any, *args: Any, **kwargs: Any) -> Any:
+        pass
+
+
+class Product(BaseProduct, PrintMixin):
     """
     Класс для описания продукта
     """
@@ -19,6 +33,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self: Any) -> str:
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'

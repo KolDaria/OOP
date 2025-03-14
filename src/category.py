@@ -30,6 +30,12 @@ class Category:
             total_quantity += product.quantity
         return f"{self.name}, количество продуктов: {total_quantity} шт."
 
+    def get_info(self) -> str:
+        total_quantity = 0
+        for product in self.__products:
+            total_quantity += product.quantity
+        return f"Категория: {self.name}, количество продуктов: {total_quantity} шт."
+
     def add_product(self, product: Any) -> Any:
         """
         Метод для записи объекта класса Product в приватный атрибут списка товаров.
@@ -41,7 +47,7 @@ class Category:
         Category.product_count += 1
 
     @property
-    def products(self) -> Any:
+    def productss(self) -> Any:
         products_str = ""
         for products in self.__products:
             products_str += f'{str(products)}\n'
@@ -49,4 +55,8 @@ class Category:
 
     @property
     def in_products(self) -> Any:
+        return self.__products
+
+    @property
+    def products(self) -> Any:
         return self.__products
