@@ -59,3 +59,25 @@ def test_init_category_products(first_category: Any, second_category: Any) -> No
     assert first_category.description == ("Смартфоны, как средство не только коммуникации, но и "
                                           "получения дополнительных функций для удобства жизни")
     assert len(first_category.products) == 3
+
+
+def test_middel_price() -> Any:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+
+    assert category1.middle_price() == 140333.33
+
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+
+    assert category_empty.middle_price() == 0
+
+
+def test_category_add_product_quantity(capsys: Any, first_category: Any) -> Any:
+    product_add = Product("Бракованный товар", "Неверное количество", 1000.0, 5)
+    first_category.add_product(product_add)
+    message = capsys.readouterr().out.strip()
+    assert "Товар успешно добавлен" in message
+    assert "Обработка добавления товара завершена" in message
