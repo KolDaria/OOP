@@ -38,6 +38,7 @@ poetry add requests
 13. `PrintMixin`: создан класс-миксин для класса продуктов.
 14. `OrderCategory`: создан абстрактный (родительский) класс для класса заказов.
 15. `Order`: создан класс для заказов.
+16. `ZeroQuantityError`: создан класс для исключения.
 
 #### Папку `tests` в которой реализованно следующее:
 
@@ -69,24 +70,26 @@ len(category_data[0].products) == 3  # выход функции
 
 ```
 ---------- coverage: platform win32, python 3.13.0-final-0 -----------
-Name                      Stmts   Miss  Cover       
----------------------------------------------       
-config.py                     4      0   100%       
-src\__init__.py               0      0   100%       
-src\category.py              41      0   100%       
-src\order.py                 19      1    95%       
-src\print_mixin.py            5      0   100%       
-src\product.py               68      1    99%       
-src\product_iterator.py      13      0   100%       
-src\utils.py                 19      0   100%       
-tests\__init__.py             0      0   100%       
-tests\conftest.py            26      0   100%       
-tests\test_category.py       34      0   100%       
-tests\test_order.py          19      0   100%       
-tests\test_product.py        73      0   100%       
-tests\test_utils.py           6      0   100%       
----------------------------------------------       
-TOTAL                       327      2    99% 
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+config.py                     4      0   100%
+src\__init__.py               0      0   100%
+src\category.py              54      3    94%
+src\exeptions.py              3      1    67%
+src\order.py                 19      1    95%
+src\print_mixin.py            5      0   100%
+src\product.py               70      1    99%
+src\product_iterator.py      13      0   100%
+src\utils.py                 19      0   100%
+tests\__init__.py             0      0   100%
+tests\conftest.py            26      0   100%
+tests\test_category.py       48      0   100%
+tests\test_order.py          19      0   100%
+tests\test_product.py        76      0   100%
+tests\test_utils.py           6      0   100%
+---------------------------------------------
+TOTAL                       362      6    98%
+
 ```
 
 ## Документация:
