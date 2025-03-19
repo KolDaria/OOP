@@ -34,6 +34,10 @@ poetry add requests
 9. `16.1_main.py`: модуль для проверки функциональностей между собой.
 10. `Smartphone`: создан дочерний класс описания продукта.
 11. `LawnGrass`: создан дочерний класс описания продукта.
+12. `BaseProduct`: создан абстрактный (родительский) класс для класса продуктов.
+13. `PrintMixin`: создан класс-миксин для класса продуктов.
+14. `OrderCategory`: создан абстрактный (родительский) класс для класса заказов.
+15. `Order`: создан класс для заказов.
 
 #### Папку `tests` в которой реализованно следующее:
 
@@ -41,6 +45,7 @@ poetry add requests
 2. `test_utils.py`: модуль для тестирования функций `reading_json, objects_json`.
 3. `test_category.py`: модуль для тестирования класса `Category`.
 4. `test_product.py`: модуль для тестирования класса `Product`.
+5. `test_order`: модуль для тестирования класса `Order`.
 
 #### Папку `data` которая содержит:
 
@@ -64,22 +69,24 @@ len(category_data[0].products) == 3  # выход функции
 
 ```
 ---------- coverage: platform win32, python 3.13.0-final-0 -----------
-Name                      Stmts   Miss  Cover
----------------------------------------------
-config.py                     4      0   100%
-src\__init__.py               0      0   100%
-src\category.py              33      0   100%
-src\product.py               60      0   100%
-src\product_iterator.py      13      0   100%
-src\utils.py                 19      0   100%
-tests\__init__.py             0      0   100%
-tests\conftest.py            26      0   100%
-tests\test_category.py       30      0   100%
-tests\test_product.py        63      0   100%
-tests\test_utils.py           6      0   100%
----------------------------------------------
-TOTAL                       254      0   100%
-
+Name                      Stmts   Miss  Cover       
+---------------------------------------------       
+config.py                     4      0   100%       
+src\__init__.py               0      0   100%       
+src\category.py              41      0   100%       
+src\order.py                 19      1    95%       
+src\print_mixin.py            5      0   100%       
+src\product.py               68      1    99%       
+src\product_iterator.py      13      0   100%       
+src\utils.py                 19      0   100%       
+tests\__init__.py             0      0   100%       
+tests\conftest.py            26      0   100%       
+tests\test_category.py       34      0   100%       
+tests\test_order.py          19      0   100%       
+tests\test_product.py        73      0   100%       
+tests\test_utils.py           6      0   100%       
+---------------------------------------------       
+TOTAL                       327      2    99% 
 ```
 
 ## Документация:

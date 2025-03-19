@@ -26,7 +26,7 @@ def test_new_product(new_product: Any) -> Any:
 def test_new_product_update(capsys: Any, product: Any) -> Any:
     product.price = -100
     message = capsys.readouterr()
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
 
 
 def test_product_price_setter() -> Any:
@@ -90,3 +90,17 @@ def test_product_lawngrass_init(product_lawngrass1: Any) -> Any:
     assert product_lawngrass1.country == "Россия"
     assert product_lawngrass1.germination_period == "7 дней"
     assert product_lawngrass1.color == "Зеленый"
+
+
+def test_print_mixin(capsys: Any) -> Any:
+    Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    message = capsys.readouterr()
+    assert message.out.strip() == "Product(Xiaomi Redmi Note 11, 1024GB, Синий, 31000.0, 14)"
+
+    Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
+    message = capsys.readouterr()
+    assert message.out.strip() == "Smartphone(Iphone 15, 512GB, Gray space, 210000.0, 8)"
+
+    LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+    message = capsys.readouterr()
+    assert message.out.strip() == "LawnGrass(Газонная трава, Элитная трава для газона, 500.0, 20)"
