@@ -1,5 +1,6 @@
 from typing import Any
 
+from src.exceptions import ZeroQuantityError
 from src.product import Product
 
 
@@ -40,11 +41,20 @@ class Category:
         """
         Метод для записи объекта класса Product в приватный атрибут списка товаров.
         """
-        if not isinstance(product, Product):
+        if isinstance(product, Product):
+            try:
+                if product.quantity == 0:
+                    raise ZeroQuantityError("Количество товара не может равняться нулю")
+            except ZeroQuantityError as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("Товар успешно добавлен")
+            finally:
+                print("Обработка добавления товара завершена")
+        else:
             raise TypeError("Можно добавлять только экземпляры Product")
-
-        self.__products.append(product)
-        Category.product_count += 1
 
     @property
     def productss(self) -> Any:
@@ -60,3 +70,9 @@ class Category:
     @property
     def products(self) -> Any:
         return self.__products
+
+    def middle_price(self) -> Any:
+        try:
+            return round(sum(product.price for product in self.__products) / len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0
